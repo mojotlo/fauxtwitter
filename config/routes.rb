@@ -4,7 +4,7 @@ TemplateRails3::Application.routes.draw do
   resources :users do
     resources :profiles
   end
-  
+  resources :microposts, :only  => [:create, :destroy]
   resources :sessions, :only  => [:new, :create, :destroy]
   match '/contact', :to => 'pages#contact'
   match '/about', :to => 'pages#about'
@@ -22,6 +22,7 @@ TemplateRails3::Application.routes.draw do
   match '/users/:id/change_password', :to  => 'users#change_password', :via  => :post
   match '/users/:id/settings', :to  => 'users#edit', :as  => :settings, :via  => :get
   match '/users/:id/settings', :to  => 'users#edit', :via  => :post 
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

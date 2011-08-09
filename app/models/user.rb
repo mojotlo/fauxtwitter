@@ -32,7 +32,7 @@ class User < ActiveRecord::Base
   attr_accessible :name, :email, :password, :password_confirmation, :reset_password_code, :reset_password_code_until
   
   has_one :profile, :dependent  => :destroy
-    
+  has_many :microposts, :dependent  => :destroy
   email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :name, :presence => true,
                 :length => {:maximum  => 50},
@@ -53,8 +53,9 @@ class User < ActiveRecord::Base
     encrypted_password==encrypt(submitted_password)
   end
   
-
-  
+  def feed
+    Micropost.where("user_id = ?", id)
+  end
   def self.authenticate(email, submitted_password)#used on sign-in
     user = find_by_email(email)
     return nil if user.nil? 

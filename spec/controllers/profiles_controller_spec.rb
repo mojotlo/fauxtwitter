@@ -7,7 +7,7 @@ describe ProfilesController do
   end
   describe "GET 'new'" do
     it "should be successful" do
-      get 'new', :user_id  => @user.id
+      get 'new', :user_id  => @user.id, :id  => @user.id
       response.should be_success
     end
   end

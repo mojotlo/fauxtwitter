@@ -7,6 +7,7 @@ class UsersController < ApplicationController
     @user=User.find(params[:id])
     @title=@user.name
     @profile=@user.profile
+    @microposts=@user.microposts.paginate(:page  => params[:page])
   end
 
   def new
@@ -133,10 +134,7 @@ class UsersController < ApplicationController
   	  length.times { |i| password << chars[rand(chars.length)] }
   	  password
   end
-  def correct_user
-    @user=User.find(params[:id])
-    redirect_to(root_path) unless current_user?(@user)
-  end
+
   def admin_user
     redirect_to(root_path) unless current_user and current_user.admin?
   end

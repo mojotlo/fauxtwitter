@@ -1,4 +1,19 @@
-<h1>home</h1>
-<p> is where the hartl is</p>
+
+<% if signed_in?%>
+<table>
+	<tr>
+		<td>
+			<h1>What's up?</h1>
+			<%=render 'shared/micropost_form'%>
+		</td>
+		<td class="sidebar round">
+			<%= render 'shared/user_info' %>
+		</td>
+		<td> <%= render 'shared/feed' %>
+	</tr>
+</table>	
+<% else %>
+<h1> Faux Twitter: Like Twitter, but not as... real.</h1> 
 <%=link_to "Sign up now!" , signup_path, :class => "signup_button round"%>
 
+<% end %>

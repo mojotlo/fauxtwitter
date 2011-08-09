@@ -15,3 +15,7 @@ Factory.sequence :email do |n|
   "person-#{n}@example.com"
 end
 
+Factory.define :micropost do |micropost|
+  micropost.content       "This is an amazing story" 
+  micropost.association     :user
+end

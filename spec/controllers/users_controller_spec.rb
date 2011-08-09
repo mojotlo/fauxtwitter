@@ -28,6 +28,13 @@ describe UsersController do
         get :show, :id  => @user
         response.should have_selector("p", :content  => "No information given")
       end
+      it "should have microposts" do
+        @mp1=Factory(:micropost, :user=>@user, :content => "Hunky donk")
+        @mp2=Factory(:micropost, :user=>@user, :content => "check out my lynx")        
+        get :show, :id  => @user
+        response.should have_selector("span", :content  => @mp1.content)
+        response.should have_selector("span", :content  => "check out my lynx")
+      end
     end      
     describe "for signed in users" do
       describe "for one user looking at another user's profile" do

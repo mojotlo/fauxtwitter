@@ -21,9 +21,7 @@ class ProfilesController < ApplicationController
    @user=User.find(params[:user_id])
    @profile=@user.profile
  end
- def index
-   @title = "All users"
- end
+
  def update
    @title="Edit Profile"
    @user=User.find(params[:user_id])
@@ -36,9 +34,4 @@ class ProfilesController < ApplicationController
       render "edit"
     end
  end
- private
-   def correct_user
-     @user=User.find(params[:user_id])
-     redirect_to(root_path) unless current_user?(@user)
-   end
 end
