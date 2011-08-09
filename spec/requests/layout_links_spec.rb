@@ -77,6 +77,8 @@ describe "LayoutLinks" do
         click_button
         visit root_path
         response.should have_selector("a", :href  => edit_user_profile_path(@user, @user.profile), :content  => "Edit Profile")
+        click_link "Edit Profile"
+        response.should be_success
       end
     end
   end

@@ -1,7 +1,6 @@
 <tr>
 	<td class="profile_pic">
-		<% @profile=feed_item.user.profile %>
-		<%= profile_pic(:thumb) %>
+		<%= profile_pic(:thumb, feed_item.user) %>
 	</td>
 	<td>
 		<span class="user">

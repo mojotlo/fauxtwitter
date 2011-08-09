@@ -3,7 +3,7 @@
 <%=conditional_link(@user.name, current_user_is_user?, edit_user_path(current_user)) %>
 </h1>
 <div class= "profile_pic">
-	<%=conditional_link(profile_pic(:large, "profile_pic"), current_user_is_user?, 	edit_user_profile_path(@user)) %>
+	<%=conditional_link(profile_pic(:medium, @user, "profile_pic"), current_user_is_user?, 	edit_user_profile_path(@user)) %>
 </div>
 <h3>About <%=@user.name %></h3>
 

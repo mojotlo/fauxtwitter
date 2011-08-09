@@ -28,8 +28,9 @@ class Profile < ActiveRecord::Base
   :url => "/:class/:attachment/:id/:style_:basename.:extension",
   :default_url => "/:class/:attachment/missing_:style.png",
   :styles => {
-     :thumb  => "100x100#",
-     :small  => "150x150>",
+     :thumb  => "80x80#",
+     :small  => "100x100>",
+     :medium  => "200x200>",     
      :large  => "450x450>"
   }
 

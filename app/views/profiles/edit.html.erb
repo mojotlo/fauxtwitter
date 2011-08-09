@@ -8,7 +8,7 @@
 
 
 <div class="field">
-	<%=profile_pic(:thumb)%>
+	<%=profile_pic(:thumb, @user)%>
 	<%=f.label :avatar, "Profile Picture" %>
 	<%=f.file_field :avatar%>
 </div>

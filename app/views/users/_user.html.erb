@@ -4,7 +4,7 @@
 
 <li><%=link_to about_default, @user %></li>
 
-<li><%= link_to profile_pic(:thumb, "profile_pic"), @user %></li>
+<li><%= link_to profile_pic(:thumb, @user, "profile_pic"), @user %></li>
 <%if current_user.admin %>
 	<%=link_to("delete", @user, {:method  => :delete, :confirm  => "You sure?", :title => "Delete #{@user.name}"})%>
 <% end %>

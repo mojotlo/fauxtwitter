@@ -15,7 +15,8 @@
 				<% if current_user.profile.nil?%>
 			<li><%=link_to 'Create Profile', new_user_profile_path(current_user)%></li>
 				<% else %>
-					<li><%=link_to 'Edit Profile', edit_user_profile_path(current_user, current_user.profile)%></li>
+				<%@profile||=current_user.profile%>
+					<li><%=link_to 'Edit Profile', edit_user_profile_path(current_user, @profile)%></li>
 
 				<% end %>
 			<li><%=link_to 'Settings', settings_path(current_user)%></li>
